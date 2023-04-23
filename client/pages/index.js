@@ -23,9 +23,9 @@ export default function Home() {
     const provider = await web3ModalRef.current.connect()
     const web3Provider = new providers.Web3Provider(provider)
     const {chainId} = await web3Provider.getNetwork()
-    if (chainId !== 4) {
-      window.alert('Change the network to Rinkeby')
-      throw new Error('Change the network to Rinkeby')
+    if (chainId !== 11155111) {
+      window.alert('Change the network to Sepolia')
+      throw new Error('Change the network to Sepolia')
     }
 
     if (needSigner) {
@@ -132,7 +132,7 @@ export default function Home() {
   useEffect(() => {
     if (!walletConnected) {
       web3ModalRef.current = new Web3Modal({
-        network: 'rinkeby',
+        network: 'sepolia',
         providerOptions: {},
         disableInjectedProvider: false,
       })
